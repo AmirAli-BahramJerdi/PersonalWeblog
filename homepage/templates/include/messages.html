@@ -1,0 +1,26 @@
+{% if messages %}
+    <div style="margin: 20px auto; max-width: 600px; padding: 10px;">
+        {% for message in messages %}
+            <div style="
+                background-color: {% if message.tags == 'success' %} #d4edda
+                                 {% elif message.tags == 'error' %} #f8d7da
+                                 {% elif message.tags == 'info' %} #d1ecf1
+                                 {% else %} #ffffff {% endif %};
+                color: {% if message.tags == 'success' %} #155724
+                       {% elif message.tags == 'error' %} #721c24
+                       {% elif message.tags == 'info' %} #0c5460
+                       {% else %} #000000 {% endif %};
+                border: 1px solid
+                        {% if message.tags == 'success' %} #c3e6cb
+                        {% elif message.tags == 'error' %} #f5c6cb
+                        {% elif message.tags == 'info' %} #bee5eb
+                        {% else %} #ddd {% endif %};
+                border-radius: 5px;
+                padding: 15px;
+                margin-bottom: 10px;
+            ">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

@@ -1,0 +1,51 @@
+<div class="portfolio_description">
+    <h2 class="title">توضیحات پروژه</h2>
+    <div class="desc">
+        <p>{{ project.description }}</p>
+    </div>
+</div>
+
+<div class="portfolio_story_approach">
+    <div class="portfolio_story">
+        <div class="story_title">
+            <h4 class="title">خلاصه پروژه</h4>
+        </div>
+        <div class="story_content">
+            <p>{{ project.summary }}</p>
+        </div>
+    </div>
+    <div class="portfolio_approach">
+        <div class="approach_title">
+            <h4 class="title">عملکرد ما</h4>
+        </div>
+        <div class="approach_content">
+            <p>{{ project.approach }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio_navigation">
+    {% if previous_project %}
+    <div class="navigation_item prev-project">
+        <a href="{% url 'project_detail' previous_project.id %}" class="project">
+            <i class="fal fa-arrow-left"></i>
+            <div class="nav_project">
+                <div class="label">پروژه قبلی</div>
+                <h3 class="title">{{ previous_project.title }}</h3>
+            </div>
+        </a>
+    </div>
+    {% endif %}
+
+    {% if next_project %}
+    <div class="navigation_item next-project">
+        <a href="{% url 'project_detail' next_project.id %}" class="project">
+            <div class="nav_project">
+                <div class="label">پروژه بعدی</div>
+                <h3 class="title">{{ next_project.title }}</h3>
+            </div>
+            <i class="fal fa-arrow-right"></i>
+        </a>
+    </div>
+    {% endif %}
+</div>
